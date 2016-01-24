@@ -3,13 +3,13 @@
 
 toDigits :: Integer -> [Integer]
 toDigits n
-		| n > 0     = revList (toDigitsRev n)
-		| otherwise = []
+        | n > 0     = revList (toDigitsRev n)
+        | otherwise = []
 
 toDigitsRev :: Integer -> [Integer]
 toDigitsRev n 
-		| n > 0     = (n `mod` 10) : toDigitsRev (n `div` 10)
-		| otherwise = []
+        | n > 0     = (n `mod` 10) : toDigitsRev (n `div` 10)
+        | otherwise = []
 
 
 revList :: [a] -> [a] -- To reverse a list
@@ -43,8 +43,8 @@ sumIt (x:xs) = x + sumIt xs
 
 validate :: Integer -> Bool
 validate n
-	| (sumDigits  (doubleEveryOther (toDigits n))) `mod` 10 == 0  = True
-	| otherwise 											      = False
+    | (sumDigits  (doubleEveryOther (toDigits n))) `mod` 10 == 0  = True
+    | otherwise                                                   = False
 
 
 -- Exercise 5
@@ -53,7 +53,6 @@ type Peg = String
 type Move = (Peg, Peg)
 hanoi :: Integer -> Peg -> Peg -> Peg -> [Move]
 hanoi n a b c
-		| n <= 0    = []
-		| n == 1    = [(a,b)]
-		| otherwise = (hanoi (n-1) a c b) ++ [(a, b)] ++ (hanoi (n-1) c b a)
-
+        | n <= 0    = []
+        | n == 1    = [(a,b)]
+        | otherwise = (hanoi (n-1) a c b) ++ [(a, b)] ++ (hanoi (n-1) c b a)
