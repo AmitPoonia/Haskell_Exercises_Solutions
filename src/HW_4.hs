@@ -1,7 +1,7 @@
 
 module HW_4 where
 
-    
+
 -- Exercise 1
 
 
@@ -24,7 +24,7 @@ foldTree (x:xs) = foldr func Leaf (x:xs)
 func :: a -> Tree a -> Tree a
 func x (Leaf) = Node 0 (Leaf) x (Leaf) 
 func x (Node 0 (Leaf) n (Leaf)) = Node 1 (func x (Leaf)) n (Leaf) 
-func x (Node 1 (Node 0 (Leaf) nl (Leaf)) n (Leaf)) = Node 1 (Node 0 (Leaf) nl (Leaf)) n (func x (Leaf))
+func x (Node 1 l n (Leaf)) = Node 1 l n (func x (Leaf))
 func x (Node h l n r)
         | isBal leftSide = leftSide
         | isBal rightSide = rightSide
