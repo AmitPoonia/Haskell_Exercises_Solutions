@@ -3,10 +3,10 @@
 
 fib :: Integer -> Integer
 fib n
-		| n <= (-1) = 0
-		| n == 1    = 0
-		| n == 2    = 1
-		| otherwise = fib (n-1) + fib (n-2)
+        | n <= (-1) = 0
+        | n == 1    = 0
+        | n == 2    = 1
+        | otherwise = fib (n-1) + fib (n-2)
 
 
 
@@ -27,9 +27,9 @@ fibs2 = 0:1:zipWith (+) fibs2 (tail fibs2)
 data Stream a = Cons a (Stream a)
 
 instance Show a => Show (Stream a) where
-	show s = show $ take 20 (lst s) 
-				where
-				    lst (Cons x (y)) = x : lst y 
+    show s = show $ take 20 (lst s) 
+                where
+                    lst (Cons x (y)) = x : lst y 
 
 streamToList :: Stream a -> [a]
 streamToList (Cons x y) = x : streamToList y
